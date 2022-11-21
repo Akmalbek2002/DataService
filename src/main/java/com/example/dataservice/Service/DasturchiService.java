@@ -78,7 +78,7 @@ public class DasturchiService {
         }
         return new ApiResponse(ss,true);
     }
-
+    //Axrorov Akmal
     public ApiResponse delDasturchi(Integer id) {
         Optional<Dasturchi> byId = dasturchiRepository.findById(id);
         if (byId.isPresent()){
