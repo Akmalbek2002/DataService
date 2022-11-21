@@ -13,7 +13,7 @@ import java.util.Optional;
 public class DasturchiService {
     @Autowired
     DasturchiRepository dasturchiRepository;
-
+    //Dasturchinni joylash
     public ApiResponse addDasturchi(Dasturchi dasturchi) {
         boolean b = dasturchiRepository.existsByEmail(dasturchi.getEmail());
         if (b){
@@ -22,7 +22,7 @@ public class DasturchiService {
         dasturchiRepository.save(dasturchi);
         return new ApiResponse("Dasturchi bazaga muvoffaqiyatli saqlandi", true);
     }
-
+    //Dasturchini tahrirlash
     public ApiResponse editDasturchi(Integer id, Dasturchi dasturchi) {
         Optional<Dasturchi> byId = dasturchiRepository.findById(id);
         if (byId.isPresent()){
@@ -59,7 +59,7 @@ public class DasturchiService {
         }
         return new ApiResponse("Bazada bunday idli dasturchi mavjud emas!",false);
     }
-
+    //Dasturchini hammasini o'qish
     public ApiResponse readDasturchi() {
         List<Dasturchi> list=dasturchiRepository.findAll();
         String ss="";
@@ -78,7 +78,7 @@ public class DasturchiService {
         }
         return new ApiResponse(ss,true);
     }
-    //Axrorov Akmal
+    //Dasturchini idlab o'chirish
     public ApiResponse delDasturchi(Integer id) {
         Optional<Dasturchi> byId = dasturchiRepository.findById(id);
         if (byId.isPresent()){
