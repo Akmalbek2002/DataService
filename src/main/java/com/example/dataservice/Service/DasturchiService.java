@@ -26,7 +26,6 @@ public class DasturchiService {
     public ApiResponse editDasturchi(Integer id, Dasturchi dasturchi) {
         Optional<Dasturchi> byId = dasturchiRepository.findById(id);
         if (byId.isPresent()){
-            //dasturchini tahrirlash
             Dasturchi dasturchi1=byId.get();
             dasturchi1.setIsm(dasturchi.getIsm());
             dasturchi1.setFamilya(dasturchi.getFamilya());
@@ -38,7 +37,7 @@ public class DasturchiService {
         }
         return new ApiResponse("Bazada bunday idli xodim mavjud emas", false);
     }
-
+    //Dasturchini idlab o'qish
     public ApiResponse idreadDasturchi(Integer id) {
         Optional<Dasturchi> byId = dasturchiRepository.findById(id);
         if (byId.isPresent()){
